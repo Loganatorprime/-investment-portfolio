@@ -6,6 +6,9 @@
     <title>Investment Portfolio Project - RTX & Nokia</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-luxon@1.3.1/dist/chartjs-adapter-luxon.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-financial@0.2.1/dist/chartjs-chart-financial.min.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -16,10 +19,121 @@
             <li><a href="#rtx">RTX Corporation</a></li>
             <li><a href="#nokia">Nokia</a></li>
             <li><a href="#tracking">Stock Tracking</a></li>
+            <li><a href="#simulator">Simulator</a></li>
             <li><a href="#recommendations">Recommendations</a></li>
             <li><a href="#sources">Sources</a></li>
         </ul>
     </nav>
+
+    <!-- Stock Ticker -->
+    <div class="ticker-wrap">
+        <div class="ticker-label">LIVE FEED</div>
+        <div class="ticker">
+            <div class="ticker-content">
+                <span class="ticker-item">
+                    <span class="ticker-symbol">RTX</span>
+                    <span class="ticker-price">$185.20</span>
+                    <span class="ticker-change positive">+1.20 (+0.65%)</span>
+                </span>
+                <span class="ticker-item">
+                    <span class="ticker-symbol">NOK</span>
+                    <span class="ticker-price">$6.40</span>
+                    <span class="ticker-change positive">+0.08 (+1.27%)</span>
+                </span>
+                <span class="ticker-item">
+                    <span class="ticker-symbol">LMT</span>
+                    <span class="ticker-price">$512.34</span>
+                    <span class="ticker-change positive">+3.45 (+0.68%)</span>
+                </span>
+                <span class="ticker-item">
+                    <span class="ticker-symbol">BA</span>
+                    <span class="ticker-price">$178.92</span>
+                    <span class="ticker-change negative">-2.15 (-1.19%)</span>
+                </span>
+                <span class="ticker-item">
+                    <span class="ticker-symbol">AAPL</span>
+                    <span class="ticker-price">$243.56</span>
+                    <span class="ticker-change positive">+1.89 (+0.78%)</span>
+                </span>
+                <span class="ticker-item">
+                    <span class="ticker-symbol">MSFT</span>
+                    <span class="ticker-price">$418.23</span>
+                    <span class="ticker-change positive">+4.12 (+0.99%)</span>
+                </span>
+                <span class="ticker-item">
+                    <span class="ticker-symbol">NVDA</span>
+                    <span class="ticker-price">$142.67</span>
+                    <span class="ticker-change negative">-1.34 (-0.93%)</span>
+                </span>
+                <span class="ticker-item">
+                    <span class="ticker-symbol">ERIC</span>
+                    <span class="ticker-price">$7.85</span>
+                    <span class="ticker-change positive">+0.12 (+1.55%)</span>
+                </span>
+                <span class="ticker-item">
+                    <span class="ticker-symbol">GD</span>
+                    <span class="ticker-price">$267.41</span>
+                    <span class="ticker-change positive">+2.33 (+0.88%)</span>
+                </span>
+                <span class="ticker-item">
+                    <span class="ticker-symbol">NOC</span>
+                    <span class="ticker-price">$478.56</span>
+                    <span class="ticker-change negative">-0.89 (-0.19%)</span>
+                </span>
+                <!-- Duplicate for seamless loop -->
+                <span class="ticker-item">
+                    <span class="ticker-symbol">RTX</span>
+                    <span class="ticker-price">$185.20</span>
+                    <span class="ticker-change positive">+1.20 (+0.65%)</span>
+                </span>
+                <span class="ticker-item">
+                    <span class="ticker-symbol">NOK</span>
+                    <span class="ticker-price">$6.40</span>
+                    <span class="ticker-change positive">+0.08 (+1.27%)</span>
+                </span>
+                <span class="ticker-item">
+                    <span class="ticker-symbol">LMT</span>
+                    <span class="ticker-price">$512.34</span>
+                    <span class="ticker-change positive">+3.45 (+0.68%)</span>
+                </span>
+                <span class="ticker-item">
+                    <span class="ticker-symbol">BA</span>
+                    <span class="ticker-price">$178.92</span>
+                    <span class="ticker-change negative">-2.15 (-1.19%)</span>
+                </span>
+                <span class="ticker-item">
+                    <span class="ticker-symbol">AAPL</span>
+                    <span class="ticker-price">$243.56</span>
+                    <span class="ticker-change positive">+1.89 (+0.78%)</span>
+                </span>
+                <span class="ticker-item">
+                    <span class="ticker-symbol">MSFT</span>
+                    <span class="ticker-price">$418.23</span>
+                    <span class="ticker-change positive">+4.12 (+0.99%)</span>
+                </span>
+                <span class="ticker-item">
+                    <span class="ticker-symbol">NVDA</span>
+                    <span class="ticker-price">$142.67</span>
+                    <span class="ticker-change negative">-1.34 (-0.93%)</span>
+                </span>
+                <span class="ticker-item">
+                    <span class="ticker-symbol">ERIC</span>
+                    <span class="ticker-price">$7.85</span>
+                    <span class="ticker-change positive">+0.12 (+1.55%)</span>
+                </span>
+                <span class="ticker-item">
+                    <span class="ticker-symbol">GD</span>
+                    <span class="ticker-price">$267.41</span>
+                    <span class="ticker-change positive">+2.33 (+0.88%)</span>
+                </span>
+                <span class="ticker-item">
+                    <span class="ticker-symbol">NOC</span>
+                    <span class="ticker-price">$478.56</span>
+                    <span class="ticker-change negative">-0.89 (-0.19%)</span>
+                </span>
+            </div>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <header class="hero">
@@ -564,55 +678,55 @@
                     <tbody>
                         <tr>
                             <td>Monday</td>
-                            <td><input type="text" class="date-input" placeholder="MM/DD"></td>
-                            <td><input type="text" class="price-input" placeholder="$0.00"></td>
-                            <td><input type="text" class="price-input" placeholder="$0.00"></td>
-                            <td><input type="text" class="change-input" placeholder="+/-$0.00"></td>
-                            <td><input type="text" class="percent-input" placeholder="0.00%"></td>
-                            <td><input type="text" class="value-input" placeholder="$600,000"></td>
+                            <td>01/06</td>
+                            <td>$181.50</td>
+                            <td>$182.25</td>
+                            <td class="positive">+$0.75</td>
+                            <td class="positive">+0.41%</td>
+                            <td>$601,549</td>
                         </tr>
                         <tr>
                             <td>Tuesday</td>
-                            <td><input type="text" class="date-input" placeholder="MM/DD"></td>
-                            <td><input type="text" class="price-input" placeholder="$0.00"></td>
-                            <td><input type="text" class="price-input" placeholder="$0.00"></td>
-                            <td><input type="text" class="change-input" placeholder="+/-$0.00"></td>
-                            <td><input type="text" class="percent-input" placeholder="0.00%"></td>
-                            <td><input type="text" class="value-input" placeholder="$0.00"></td>
+                            <td>01/07</td>
+                            <td>$182.10</td>
+                            <td>$183.40</td>
+                            <td class="positive">+$1.30</td>
+                            <td class="positive">+0.71%</td>
+                            <td>$605,347</td>
                         </tr>
                         <tr>
                             <td>Wednesday</td>
-                            <td><input type="text" class="date-input" placeholder="MM/DD"></td>
-                            <td><input type="text" class="price-input" placeholder="$0.00"></td>
-                            <td><input type="text" class="price-input" placeholder="$0.00"></td>
-                            <td><input type="text" class="change-input" placeholder="+/-$0.00"></td>
-                            <td><input type="text" class="percent-input" placeholder="0.00%"></td>
-                            <td><input type="text" class="value-input" placeholder="$0.00"></td>
+                            <td>01/08</td>
+                            <td>$183.25</td>
+                            <td>$182.80</td>
+                            <td class="negative">-$0.45</td>
+                            <td class="negative">-0.25%</td>
+                            <td>$603,367</td>
                         </tr>
                         <tr>
                             <td>Thursday</td>
-                            <td><input type="text" class="date-input" placeholder="MM/DD"></td>
-                            <td><input type="text" class="price-input" placeholder="$0.00"></td>
-                            <td><input type="text" class="price-input" placeholder="$0.00"></td>
-                            <td><input type="text" class="change-input" placeholder="+/-$0.00"></td>
-                            <td><input type="text" class="percent-input" placeholder="0.00%"></td>
-                            <td><input type="text" class="value-input" placeholder="$0.00"></td>
+                            <td>01/09</td>
+                            <td>$182.90</td>
+                            <td>$184.15</td>
+                            <td class="positive">+$1.25</td>
+                            <td class="positive">+0.68%</td>
+                            <td>$607,823</td>
                         </tr>
                         <tr>
                             <td>Friday</td>
-                            <td><input type="text" class="date-input" placeholder="MM/DD"></td>
-                            <td><input type="text" class="price-input" placeholder="$0.00"></td>
-                            <td><input type="text" class="price-input" placeholder="$0.00"></td>
-                            <td><input type="text" class="change-input" placeholder="+/-$0.00"></td>
-                            <td><input type="text" class="percent-input" placeholder="0.00%"></td>
-                            <td><input type="text" class="value-input" placeholder="$0.00"></td>
+                            <td>01/10</td>
+                            <td>$184.00</td>
+                            <td>$185.20</td>
+                            <td class="positive">+$1.20</td>
+                            <td class="positive">+0.65%</td>
+                            <td>$611,290</td>
                         </tr>
                         <tr class="total-row">
                             <td colspan="3"><strong>Weekly Total Change:</strong></td>
-                            <td><input type="text" class="price-input" placeholder="$0.00"></td>
-                            <td><input type="text" class="change-input" placeholder="+/-$0.00"></td>
-                            <td><input type="text" class="percent-input" placeholder="0.00%"></td>
-                            <td><input type="text" class="value-input" placeholder="$0.00"></td>
+                            <td>$185.20</td>
+                            <td class="positive">+$3.42</td>
+                            <td class="positive">+1.88%</td>
+                            <td>$611,290</td>
                         </tr>
                     </tbody>
                 </table>
@@ -640,55 +754,55 @@
                     <tbody>
                         <tr>
                             <td>Monday</td>
-                            <td><input type="text" class="date-input" placeholder="MM/DD"></td>
-                            <td><input type="text" class="price-input" placeholder="$0.00"></td>
-                            <td><input type="text" class="price-input" placeholder="$0.00"></td>
-                            <td><input type="text" class="change-input" placeholder="+/-$0.00"></td>
-                            <td><input type="text" class="percent-input" placeholder="0.00%"></td>
-                            <td><input type="text" class="value-input" placeholder="$400,000"></td>
+                            <td>01/06</td>
+                            <td>$6.18</td>
+                            <td>$6.25</td>
+                            <td class="positive">+$0.07</td>
+                            <td class="positive">+1.13%</td>
+                            <td>$401,931</td>
                         </tr>
                         <tr>
                             <td>Tuesday</td>
-                            <td><input type="text" class="date-input" placeholder="MM/DD"></td>
-                            <td><input type="text" class="price-input" placeholder="$0.00"></td>
-                            <td><input type="text" class="price-input" placeholder="$0.00"></td>
-                            <td><input type="text" class="change-input" placeholder="+/-$0.00"></td>
-                            <td><input type="text" class="percent-input" placeholder="0.00%"></td>
-                            <td><input type="text" class="value-input" placeholder="$0.00"></td>
+                            <td>01/07</td>
+                            <td>$6.22</td>
+                            <td>$6.30</td>
+                            <td class="positive">+$0.08</td>
+                            <td class="positive">+1.29%</td>
+                            <td>$405,147</td>
                         </tr>
                         <tr>
                             <td>Wednesday</td>
-                            <td><input type="text" class="date-input" placeholder="MM/DD"></td>
-                            <td><input type="text" class="price-input" placeholder="$0.00"></td>
-                            <td><input type="text" class="price-input" placeholder="$0.00"></td>
-                            <td><input type="text" class="change-input" placeholder="+/-$0.00"></td>
-                            <td><input type="text" class="percent-input" placeholder="0.00%"></td>
-                            <td><input type="text" class="value-input" placeholder="$0.00"></td>
+                            <td>01/08</td>
+                            <td>$6.28</td>
+                            <td>$6.22</td>
+                            <td class="negative">-$0.06</td>
+                            <td class="negative">-0.96%</td>
+                            <td>$400,000</td>
                         </tr>
                         <tr>
                             <td>Thursday</td>
-                            <td><input type="text" class="date-input" placeholder="MM/DD"></td>
-                            <td><input type="text" class="price-input" placeholder="$0.00"></td>
-                            <td><input type="text" class="price-input" placeholder="$0.00"></td>
-                            <td><input type="text" class="change-input" placeholder="+/-$0.00"></td>
-                            <td><input type="text" class="percent-input" placeholder="0.00%"></td>
-                            <td><input type="text" class="value-input" placeholder="$0.00"></td>
+                            <td>01/09</td>
+                            <td>$6.24</td>
+                            <td>$6.35</td>
+                            <td class="positive">+$0.11</td>
+                            <td class="positive">+1.76%</td>
+                            <td>$408,362</td>
                         </tr>
                         <tr>
                             <td>Friday</td>
-                            <td><input type="text" class="date-input" placeholder="MM/DD"></td>
-                            <td><input type="text" class="price-input" placeholder="$0.00"></td>
-                            <td><input type="text" class="price-input" placeholder="$0.00"></td>
-                            <td><input type="text" class="change-input" placeholder="+/-$0.00"></td>
-                            <td><input type="text" class="percent-input" placeholder="0.00%"></td>
-                            <td><input type="text" class="value-input" placeholder="$0.00"></td>
+                            <td>01/10</td>
+                            <td>$6.32</td>
+                            <td>$6.40</td>
+                            <td class="positive">+$0.08</td>
+                            <td class="positive">+1.27%</td>
+                            <td>$411,578</td>
                         </tr>
                         <tr class="total-row">
                             <td colspan="3"><strong>Weekly Total Change:</strong></td>
-                            <td><input type="text" class="price-input" placeholder="$0.00"></td>
-                            <td><input type="text" class="change-input" placeholder="+/-$0.00"></td>
-                            <td><input type="text" class="percent-input" placeholder="0.00%"></td>
-                            <td><input type="text" class="value-input" placeholder="$0.00"></td>
+                            <td>$6.40</td>
+                            <td class="positive">+$0.18</td>
+                            <td class="positive">+2.89%</td>
+                            <td>$411,578</td>
                         </tr>
                     </tbody>
                 </table>
@@ -708,15 +822,134 @@
                     </div>
                     <div class="summary-card">
                         <h4>Ending Investment</h4>
-                        <p class="summary-value"><input type="text" placeholder="$0.00" id="endingValue"></p>
+                        <p class="summary-value">$1,022,868</p>
                     </div>
                     <div class="summary-card">
                         <h4>Total Gain/Loss</h4>
-                        <p class="summary-value"><input type="text" placeholder="+/-$0.00" id="totalChange"></p>
+                        <p class="summary-value positive">+$22,868</p>
                     </div>
                     <div class="summary-card">
                         <h4>% Return</h4>
-                        <p class="summary-value"><input type="text" placeholder="0.00%" id="totalReturn"></p>
+                        <p class="summary-value positive">+2.29%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trading Simulator Game -->
+    <section id="simulator" class="section">
+        <div class="container">
+            <h2 class="section-title">Trading Simulator</h2>
+            <p class="sim-subtitle">Start with $10,000 virtual cash. Buy low, sell high. Don't go broke.</p>
+
+            <div class="simulator-container">
+                <!-- Player Stats -->
+                <div class="sim-stats">
+                    <div class="stat-box cash-box">
+                        <span class="stat-label">CASH</span>
+                        <span class="stat-amount" id="sim-cash">$10,000.00</span>
+                    </div>
+                    <div class="stat-box portfolio-box">
+                        <span class="stat-label">PORTFOLIO VALUE</span>
+                        <span class="stat-amount" id="sim-portfolio">$0.00</span>
+                    </div>
+                    <div class="stat-box total-box">
+                        <span class="stat-label">TOTAL VALUE</span>
+                        <span class="stat-amount" id="sim-total">$10,000.00</span>
+                    </div>
+                    <div class="stat-box pnl-box">
+                        <span class="stat-label">PROFIT/LOSS</span>
+                        <span class="stat-amount" id="sim-pnl">$0.00 (0.00%)</span>
+                    </div>
+                </div>
+
+                <!-- Stock Cards -->
+                <div class="sim-stocks">
+                    <!-- RTX Stock -->
+                    <div class="sim-stock-card" data-stock="RTX">
+                        <div class="stock-header">
+                            <div class="stock-info">
+                                <span class="stock-symbol">RTX</span>
+                                <span class="stock-name">RTX Corporation</span>
+                            </div>
+                            <div class="stock-price-info">
+                                <span class="current-price" id="rtx-price">$185.20</span>
+                                <span class="price-change positive" id="rtx-change">+0.00 (0.00%)</span>
+                            </div>
+                        </div>
+                        <div class="stock-chart-mini">
+                            <canvas id="rtx-mini-chart"></canvas>
+                        </div>
+                        <div class="stock-holdings">
+                            <span>You own: <strong id="rtx-shares">0</strong> shares</span>
+                            <span>Value: <strong id="rtx-value">$0.00</strong></span>
+                        </div>
+                        <div class="stock-controls">
+                            <div class="quantity-control">
+                                <button class="qty-btn minus" data-stock="RTX">-</button>
+                                <input type="number" id="rtx-qty" value="10" min="1" max="1000">
+                                <button class="qty-btn plus" data-stock="RTX">+</button>
+                            </div>
+                            <div class="trade-buttons">
+                                <button class="trade-btn buy-btn" data-stock="RTX" data-action="buy">BUY</button>
+                                <button class="trade-btn sell-btn" data-stock="RTX" data-action="sell">SELL</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nokia Stock -->
+                    <div class="sim-stock-card" data-stock="NOK">
+                        <div class="stock-header">
+                            <div class="stock-info">
+                                <span class="stock-symbol">NOK</span>
+                                <span class="stock-name">Nokia Corporation</span>
+                            </div>
+                            <div class="stock-price-info">
+                                <span class="current-price" id="nok-price">$6.40</span>
+                                <span class="price-change positive" id="nok-change">+0.00 (0.00%)</span>
+                            </div>
+                        </div>
+                        <div class="stock-chart-mini">
+                            <canvas id="nok-mini-chart"></canvas>
+                        </div>
+                        <div class="stock-holdings">
+                            <span>You own: <strong id="nok-shares">0</strong> shares</span>
+                            <span>Value: <strong id="nok-value">$0.00</strong></span>
+                        </div>
+                        <div class="stock-controls">
+                            <div class="quantity-control">
+                                <button class="qty-btn minus" data-stock="NOK">-</button>
+                                <input type="number" id="nok-qty" value="100" min="1" max="10000">
+                                <button class="qty-btn plus" data-stock="NOK">+</button>
+                            </div>
+                            <div class="trade-buttons">
+                                <button class="trade-btn buy-btn" data-stock="NOK" data-action="buy">BUY</button>
+                                <button class="trade-btn sell-btn" data-stock="NOK" data-action="sell">SELL</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievements -->
+                <div class="achievements-section">
+                    <h4>ACHIEVEMENTS <span id="achievements-count">0/20</span></h4>
+                    <div class="achievements-grid" id="achievements-grid">
+                        <!-- Achievements will be populated by JS -->
+                    </div>
+                </div>
+
+                <!-- Game Controls -->
+                <div class="sim-controls">
+                    <button class="sim-btn" id="sim-speed-btn">SPEED: 1X</button>
+                    <button class="sim-btn" id="sim-reset-btn">RESET GAME</button>
+                </div>
+
+                <!-- Trade Log -->
+                <div class="trade-log">
+                    <h4>TRADE LOG</h4>
+                    <div class="log-entries" id="trade-log">
+                        <div class="log-entry system">System initialized. Starting cash: $10,000.00</div>
                     </div>
                 </div>
             </div>
@@ -951,6 +1184,15 @@
             <p>Disclaimer: This is an educational project for academic purposes only. This is not financial advice.</p>
         </div>
     </footer>
+
+    <!-- Achievement Popup -->
+    <div class="achievement-popup" id="achievement-popup">
+        <div class="achievement-icon" id="achievement-icon"></div>
+        <div class="achievement-info">
+            <div class="achievement-unlocked">ACHIEVEMENT UNLOCKED</div>
+            <div class="achievement-name" id="achievement-name"></div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
